@@ -98,6 +98,6 @@ jobs:
           with:
             context: .
             push: true
-            tags: ghcr.io/ritesh7045/solar-system:${{ github.sha }}
+            tags: ghcr.io/ritesh7045/solar-system:{github.sha}
 
 
