@@ -70,6 +70,8 @@ jobs:
             path: coverage
             retention-days: 5
           if: always()
+
+
        
     docker:
         name: Docker Build and Push
@@ -84,7 +86,7 @@ jobs:
           uses: docker/login-action@v2
           with:
             registry: ghcr.io
-            username: Ritesh7045
+            username: ${{ github.repository_owner }}
             password: ${{ secrets.DOCKER_TOKEN }}
 
         - name: Build and Push Docker Image
@@ -92,6 +94,6 @@ jobs:
           with:
             context: .
             push: true
-            tags: ghcr.io/Ritesh7045/solar-system:${{ github.sha }}
-            
+            tags: ghcr.io/${{ github.repository_owner }}/solar-system:${{ github.sha }}
+
 
