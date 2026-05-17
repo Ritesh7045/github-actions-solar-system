@@ -78,7 +78,7 @@ jobs:
         steps:
         - name: Checkout Repository
           uses: actions/checkout@v4
-          
+
 
         - name: Login to DockerHub
           uses: docker/login-action@v2
@@ -93,4 +93,5 @@ jobs:
             context: .
             push: true
             tags: ghcr.io/Ritesh7045/solar-system:${{ github.sha }}
+            
 
