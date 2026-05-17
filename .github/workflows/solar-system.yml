@@ -90,7 +90,7 @@ jobs:
           uses: docker/login-action@v2
           with:
             registry: ghcr.io
-            username: ${{ github.repository_owner }}
+            username: ritesh7045
             password: ${{ secrets.DOCKER_TOKEN }}
 
         - name: Build and Push Docker Image
@@ -98,6 +98,6 @@ jobs:
           with:
             context: .
             push: true
-            tags: ghcr.io/ritesh7045/solar-system:{github.sha}
+            tags: 'ghcr.io/ritesh7045/solar-system:${{ github.sha }}'
 
 
