@@ -84,11 +84,11 @@ jobs:
           with:
             registry: ghcr.io
             username: Ritesh7045
-            password: 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
+            password: ${{ secrets.DOCKER_TOKEN }}
 
         - name: Build and Push Docker Image
           uses: docker/build-push-action@v3
           with:
             context: .
             push: true
-            tags: ghcr.io/Ritesh7045/solar-system:{{ github.sha }}
+            tags: ghcr.io/Ritesh7045/solar-system:${{ github.sha }}
