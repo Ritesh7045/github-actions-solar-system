@@ -70,3 +70,25 @@ jobs:
             path: coverage
             retention-days: 5
           if: always()
+       
+    docker:
+        name: Docker Build and Push
+        runs-on: ubuntu-latest
+        needs: [unit-testing, code-coverage]
+        steps:
+        - name: Checkout Repository
+          uses: actions/checkout@v4
+
+        - name: Login to DockerHub
+          uses: docker/login-action@v2
+          with:
+            registry: ghcr.io
+            username: Ritesh7045
+            password: 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
+
+        - name: Build and Push Docker Image
+          uses: docker/build-push-action@v3
+          with:
+            context: .
+            push: true
+            tags: ghcr.io/Ritesh7045/solar-system:{{ github.sha }}
