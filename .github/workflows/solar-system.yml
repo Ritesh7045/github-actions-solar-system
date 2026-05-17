@@ -12,6 +12,10 @@ env:
   MONGO_USERNAME: superuser      
   MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}
 
+permissions:
+  contents: read
+  packages: write  
+
 jobs:
     unit-testing:
         name: Unit Testing
